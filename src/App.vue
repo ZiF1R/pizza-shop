@@ -1,29 +1,68 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
   <router-view />
 </template>
 
+<script>
+export default {
+  data() {
+    return {};
+  },
+};
+</script>
+
 <style lang="scss">
+@import "@/vars.scss";
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
+  font-size: 16px;
 }
 
-#nav {
-  padding: 30px;
+.button {
+  font-weight: 700;
+  font-size: 1em;
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+  padding: 11px 20px;
 
-    &.router-link-exact-active {
-      color: #42b983;
+  border-radius: 500px;
+  border: 2px solid;
+
+  outline: none;
+  cursor: pointer;
+
+  &_primary {
+    color: var(#{--primary-color});
+    border: 2px solid var(#{--primary-color});
+    background: #fff;
+
+    &:hover {
+      color: #fff;
+      background: var(#{--primary-color});
+    }
+
+    &:active {
+      background: darken($color: #fe5f1e, $amount: 5%);
+    }
+  }
+
+  &_active {
+    color: #fff;
+    background: var(#{--primary-color});
+
+    &:hover {
+      background: lighten($color: #fe5f1e, $amount: 5%);
+    }
+
+    &:active {
+      background: darken($color: #fe5f1e, $amount: 5%);
     }
   }
 }
