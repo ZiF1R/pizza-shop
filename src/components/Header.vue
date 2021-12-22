@@ -1,23 +1,23 @@
 <template>
   <div class="cart">
     <img src="@/assets/logo.svg" alt="pizza-shop logo" />
-    <button-component :classes="['button_active', 'button_primary']">
+    <primary-button :classes="['button_active', 'button_primary']">
       <span class="total-price">$530</span>
       <span class="line">|</span>
       <div class="cart-icon">
         <img src="@/assets/cart.svg" alt="cart icon" />
         <span class="total-items">3</span>
       </div>
-    </button-component>
+    </primary-button>
   </div>
 </template>
 
 <script>
-import ButtonComponent from "@/components/ButtonComponent.vue";
+import PrimaryButton from "@/components/PrimaryButton.vue";
 
 export default {
   components: {
-    ButtonComponent,
+    PrimaryButton,
   },
 };
 </script>
