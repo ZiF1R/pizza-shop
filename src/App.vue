@@ -38,6 +38,8 @@ body {
   outline: none;
   cursor: pointer;
 
+  background: #f9f9f9;
+
   &_primary {
     color: var(#{--primary-color});
     border: 2px solid var(#{--primary-color});

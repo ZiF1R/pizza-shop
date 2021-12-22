@@ -2,13 +2,17 @@
   <div class="container">
     <head-component />
     <hr />
-    <filters-component />
+    <div class="management">
+      <filters-component :filters="filters" />
+      <sorting-component />
+    </div>
   </div>
 </template>
 
 <script>
 import HeadComponent from "@/components/Header.vue";
 import FiltersComponent from "@/components/Filters.vue";
+import SortingComponent from "@/components/Sorting.vue";
 
 export default {
   name: "OrderPage",
@@ -16,6 +20,20 @@ export default {
   components: {
     HeadComponent,
     FiltersComponent,
+    SortingComponent,
+  },
+
+  data() {
+    return {
+      filters: [
+        "Все",
+        "Мясные",
+        "Вегетарианская",
+        "Гриль",
+        "Острые",
+        "Закрытые",
+      ],
+    };
   },
 };
 </script>
