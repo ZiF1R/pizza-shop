@@ -27,5 +27,7 @@ button {
   justify-content: center;
   align-items: center;
   position: relative;
+
+  user-select: none;
 }
 </style>

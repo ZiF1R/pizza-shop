@@ -42,6 +42,13 @@ export default {
 .container {
   padding: 0px 70px 0px 40px;
 
+  .management {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   hr {
     margin: 40px 0;
   }

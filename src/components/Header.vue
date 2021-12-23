@@ -34,5 +34,14 @@ export default {
     color: #ffffff54;
     padding: 0 9px;
   }
+
+  .cart-icon {
+    display: flex;
+    justify-content: center;
+
+    span {
+      padding-left: 5px;
+    }
+  }
 }
 </style>
