@@ -6,6 +6,7 @@
       <filters-component :filters="filters" />
       <sorting-component />
     </div>
+    <h2>Все пиццы</h2>
   </div>
 </template>
 
@@ -47,6 +48,14 @@ export default {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+  }
+
+  h2 {
+    padding: 0;
+    margin: 35px 0;
+    font-weight: 900;
+    font-size: 2em;
+    color: #000;
   }
 
   hr {
