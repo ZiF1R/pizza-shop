@@ -70,7 +70,7 @@ export default {
 
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
   border-radius: 10px;
-  padding: 13px 0;
+  padding: 10px 0;
 
   span {
     padding: 10px 15px;
