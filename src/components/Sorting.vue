@@ -29,6 +29,7 @@ export default {
   height: fit-content;
 
   span {
+    width: max-content;
     font-weight: 700;
   }
 

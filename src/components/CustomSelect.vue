@@ -46,6 +46,7 @@ export default {
   position: relative;
 
   user-select: none;
+  z-index: 10;
 }
 
 .selected-value {

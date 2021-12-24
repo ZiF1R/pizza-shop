@@ -30,7 +30,7 @@ body {
   font-weight: 700;
   font-size: 1em;
 
-  padding: 11px 20px;
+  padding: 11px 25px;
 
   border-radius: 500px;
   border: 2px solid;
