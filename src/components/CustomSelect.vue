@@ -8,6 +8,7 @@
         v-for="option in options"
         :key="option"
         @click.left="selectEvent(option)"
+        :class="{ option__active: option === selected }"
       >
         {{ option }}
       </span>
@@ -78,8 +79,12 @@ export default {
 
     &:hover {
       background: rgba(254, 95, 30, 0.05);
-      color: var(#{--primary-color});
     }
+  }
+
+  .option__active {
+    background: rgba(254, 95, 30, 0.05);
+    color: var(#{--primary-color});
   }
 }
 </style>
