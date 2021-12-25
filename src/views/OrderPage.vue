@@ -7,11 +7,15 @@
       <sorting-component />
     </div>
     <h2>Все пиццы</h2>
+    <div class="products">
+      <pizza />
+    </div>
   </div>
 </template>
 
 <script>
 import HeadComponent from "@/components/Header.vue";
+import Pizza from "@/components/Pizza.vue";
 import FiltersComponent from "@/components/Filters.vue";
 import SortingComponent from "@/components/Sorting.vue";
 
@@ -20,6 +24,7 @@ export default {
 
   components: {
     HeadComponent,
+    Pizza,
     FiltersComponent,
     SortingComponent,
   },
