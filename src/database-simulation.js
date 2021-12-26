@@ -18,6 +18,7 @@ const pizzaTable = [
   {
     name: "Чизбургер-пицца",
     icon: "cheeseburger",
+    keyWords: ["Острые", "Закрытые", "Сырные"],
     sizes: [
       {
         value: MINSIZE,
@@ -52,6 +53,7 @@ const pizzaTable = [
   {
     name: "Сырная",
     icon: "cheese",
+    keyWords: ["Закрытые", "Сырные"],
     sizes: [
       {
         value: MINSIZE,
@@ -86,6 +88,7 @@ const pizzaTable = [
   {
     name: "Креветки по-азиатски",
     icon: "shrimps",
+    keyWords: ["Мясные", "Сырные"],
     sizes: [
       {
         value: MINSIZE,
@@ -120,6 +123,7 @@ const pizzaTable = [
   {
     name: "Сырный цыпленок",
     icon: "cheese-chicken",
+    keyWords: ["Мясные", "Сырные", "Гриль"],
     sizes: [
       {
         value: MINSIZE,
