@@ -4,8 +4,8 @@
       class="button filter"
       v-for="filter in filters"
       :key="filter"
-      :class="{ filter_active: filter === active }"
-      @click="active = filter"
+      :class="{ filter_active: filter === activeFilter }"
+      @click="selectFiltration(filter)"
     >
       {{ filter }}
     </button>
@@ -22,10 +22,19 @@ export default {
     },
   },
 
+  emits: ["onFilter"],
+
   data() {
     return {
-      active: "Все",
+      activeFilter: this.filters[0],
     };
+  },
+
+  methods: {
+    selectFiltration(filter) {
+      this.activeFilter = filter;
+      this.$emit("onFilter", this.activeFilter);
+    },
   },
 };
 </script>
