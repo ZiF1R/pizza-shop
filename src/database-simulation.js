@@ -17,7 +17,7 @@ const THIN_BORDER_ADDITION = 0,
 const pizzaTable = [
   {
     name: "Чизбургер-пицца",
-    icon: "",
+    icon: "cheeseburger",
     sizes: [
       {
         value: MINSIZE,
@@ -51,7 +51,7 @@ const pizzaTable = [
   },
   {
     name: "Сырная",
-    icon: "",
+    icon: "cheese",
     sizes: [
       {
         value: MINSIZE,
@@ -85,7 +85,7 @@ const pizzaTable = [
   },
   {
     name: "Креветки по-азиатски",
-    icon: "",
+    icon: "shrimps",
     sizes: [
       {
         value: MINSIZE,
@@ -119,7 +119,7 @@ const pizzaTable = [
   },
   {
     name: "Сырный цыпленок",
-    icon: "",
+    icon: "cheese-chicken",
     sizes: [
       {
         value: MINSIZE,
