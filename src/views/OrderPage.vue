@@ -8,7 +8,9 @@
     </div>
     <h2>Все пиццы</h2>
     <div class="products">
-      <pizza />
+      <template v-for="p in pizza" :key="p.name">
+        <pizza :pizza="p" />
+      </template>
     </div>
   </div>
 </template>
@@ -16,6 +18,7 @@
 <script>
 import HeadComponent from "@/components/Header.vue";
 import Pizza from "@/components/Pizza.vue";
+import { pizzaTable } from "@/database-simulation.js";
 import FiltersComponent from "@/components/Filters.vue";
 import SortingComponent from "@/components/Sorting.vue";
 
@@ -39,6 +42,7 @@ export default {
         "Острые",
         "Закрытые",
       ],
+      pizza: pizzaTable,
     };
   },
 };
@@ -64,7 +68,17 @@ export default {
   }
 
   hr {
+    border: none;
+    height: 1px;
+    background: #eee;
     margin: 40px 0;
+  }
+
+  .products {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
   }
 }
 </style>
