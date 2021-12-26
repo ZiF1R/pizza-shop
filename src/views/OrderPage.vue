@@ -3,15 +3,16 @@
     <head-component />
     <hr />
     <div class="management">
-      <filters-component :filters="filters" />
+      <filters-component @onFilter="activeFilter = $event" :filters="filters" />
       <sorting-component />
     </div>
     <h2>Все пиццы</h2>
-    <div class="products">
-      <template v-for="p in pizza" :key="p.name">
-        <pizza :pizza="p" />
-      </template>
+    <div class="products" v-if="filteredPizza.length">
+      <pizza v-for="p in filteredPizza" :key="p.name" :pizza="p" />
     </div>
+    <h1 v-else style="text-align: center; margin-top: 130px">
+      По данному фильтру ничего не найдено!
+    </h1>
   </div>
 </template>
 
@@ -34,16 +35,26 @@ export default {
 
   data() {
     return {
+      pizza: pizzaTable,
+      activeFilter: "Все",
       filters: [
         "Все",
         "Мясные",
         "Вегетарианская",
         "Гриль",
+        "Сырные",
         "Острые",
         "Закрытые",
       ],
-      pizza: pizzaTable,
     };
+  },
+
+  computed: {
+    filteredPizza() {
+      if (this.activeFilter === "Все") return this.pizza;
+      else
+        return this.pizza.filter((p) => p.keyWords.includes(this.activeFilter));
+    },
   },
 };
 </script>
