@@ -49,6 +49,7 @@ const pizzaTable = [
       },
     ],
     initialCost: 395,
+    ordersCount: 1024,
   },
   {
     name: "Сырная",
@@ -84,6 +85,7 @@ const pizzaTable = [
       },
     ],
     initialCost: 450,
+    ordersCount: 729,
   },
   {
     name: "Креветки по-азиатски",
@@ -119,6 +121,7 @@ const pizzaTable = [
       },
     ],
     initialCost: 230,
+    ordersCount: 312,
   },
   {
     name: "Сырный цыпленок",
@@ -154,6 +157,7 @@ const pizzaTable = [
       },
     ],
     initialCost: 275,
+    ordersCount: 921,
   },
 ];
 
