@@ -3,17 +3,17 @@
     <img :src="imgPath" :alt="pizza.name" />
     <h2>{{ pizza.name }}</h2>
     <div class="pizza__options">
-      <div class="options__border">
-        <template v-for="border in pizza.borders" :key="border.value">
+      <div class="options__dough">
+        <template v-for="d in pizza.dough" :key="d.value">
           <span
             class="option"
             :class="{
-              option_disable: !border.inStock,
-              option_active: border === activeBorder,
+              option_disable: !d.inStock,
+              option_active: d === activeDough,
             }"
-            @click="border.inStock && (activeBorder = border)"
+            @click="d.inStock && (activeDough = d)"
           >
-            {{ border.value }}
+            {{ d.value }}
           </span>
         </template>
       </div>
@@ -58,7 +58,7 @@ export default {
 
   data() {
     return {
-      activeBorder: this.pizza.borders.filter((b) => b.inStock)[0],
+      activeDough: this.pizza.dough.filter((d) => d.inStock)[0],
       activeSize: this.pizza.sizes.filter((s) => s.inStock)[0],
       imgPath: require(`@/assets/pizza/${this.pizza.icon}.svg`),
     };
@@ -68,7 +68,7 @@ export default {
     totalCost() {
       return ~~(
         this.pizza.initialCost * this.activeSize.coeff +
-        this.activeBorder.addition
+        this.activeDough.addition
       );
     },
   },
@@ -117,7 +117,7 @@ export default {
   border-radius: 10px;
   padding: 7px;
 
-  .options__border,
+  .options__dough,
   .options__sizes {
     display: flex;
     flex-direction: row;

@@ -8,11 +8,11 @@ const MIN_COEFF = 1,
   BIG_COEFF = 1.5;
 
 // border constants
-const TRADITIONAL_BORDER = "традиционная",
-  THIN_BORDER = "тонкая";
+const TRADITIONAL_DOUGH = "традиционное",
+  THIN_DOUGH = "тонкое";
 
-const THIN_BORDER_ADDITION = 0,
-  TRADITIONAL_BORDER_ADDITION = 30;
+const THIN_DOUGH_ADDITION = 0,
+  TRADITIONAL_DOUGH_ADDITION = 30;
 
 const pizzaTable = [
   {
@@ -36,16 +36,16 @@ const pizzaTable = [
         coeff: BIG_COEFF,
       },
     ],
-    borders: [
+    dough: [
       {
-        value: THIN_BORDER,
+        value: THIN_DOUGH,
         inStock: true,
-        addition: 0,
+        addition: THIN_DOUGH_ADDITION,
       },
       {
-        value: TRADITIONAL_BORDER,
+        value: TRADITIONAL_DOUGH,
         inStock: true,
-        addition: 30,
+        addition: TRADITIONAL_DOUGH_ADDITION,
       },
     ],
     initialCost: 395,
@@ -72,16 +72,16 @@ const pizzaTable = [
         coeff: BIG_COEFF,
       },
     ],
-    borders: [
+    dough: [
       {
-        value: THIN_BORDER,
+        value: THIN_DOUGH,
         inStock: true,
-        addition: THIN_BORDER_ADDITION,
+        addition: THIN_DOUGH_ADDITION,
       },
       {
-        value: TRADITIONAL_BORDER,
+        value: TRADITIONAL_DOUGH,
         inStock: true,
-        addition: TRADITIONAL_BORDER_ADDITION,
+        addition: TRADITIONAL_DOUGH_ADDITION,
       },
     ],
     initialCost: 450,
@@ -108,16 +108,16 @@ const pizzaTable = [
         coeff: BIG_COEFF,
       },
     ],
-    borders: [
+    dough: [
       {
-        value: THIN_BORDER,
+        value: THIN_DOUGH,
         inStock: true,
-        addition: THIN_BORDER_ADDITION,
+        addition: THIN_DOUGH_ADDITION,
       },
       {
-        value: TRADITIONAL_BORDER,
+        value: TRADITIONAL_DOUGH,
         inStock: true,
-        addition: TRADITIONAL_BORDER_ADDITION,
+        addition: TRADITIONAL_DOUGH_ADDITION,
       },
     ],
     initialCost: 230,
@@ -144,16 +144,16 @@ const pizzaTable = [
         coeff: BIG_COEFF,
       },
     ],
-    borders: [
+    dough: [
       {
-        value: THIN_BORDER,
+        value: THIN_DOUGH,
         inStock: false,
-        addition: THIN_BORDER_ADDITION,
+        addition: THIN_DOUGH_ADDITION,
       },
       {
-        value: TRADITIONAL_BORDER,
+        value: TRADITIONAL_DOUGH,
         inStock: true,
-        addition: TRADITIONAL_BORDER_ADDITION,
+        addition: TRADITIONAL_DOUGH_ADDITION,
       },
     ],
     initialCost: 275,

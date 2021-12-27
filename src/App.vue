@@ -4,6 +4,16 @@
   </div>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      cart: [],
+    };
+  },
+}
+</script>
+
 <style lang="scss">
 @import "@/vars.scss";
 
