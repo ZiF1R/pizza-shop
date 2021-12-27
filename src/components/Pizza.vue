@@ -11,7 +11,7 @@
               option_disable: !border.inStock,
               option_active: border === activeBorder,
             }"
-            @click="activeBorder = border"
+            @click="border.inStock && (activeBorder = border)"
           >
             {{ border.value }}
           </span>
@@ -25,7 +25,7 @@
               option_disable: !size.inStock,
               option_active: size === activeSize,
             }"
-            @click="activeSize = size"
+            @click="size.inStock && (activeSize = size)"
           >
             {{ size.value }} см.
           </span>
