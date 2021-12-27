@@ -1,27 +1,36 @@
 <template>
-  <div class="container">
-    <head-component />
-    <hr />
-    <div class="management">
-      <filters-component @onFilter="activeFilter = $event" :filters="filters" />
-      <sorting-component @onSort="sort" />
-    </div>
-    <h2>Все пиццы</h2>
-    <div class="products" v-if="filteredPizza.length">
-      <pizza v-for="p in filteredPizza" :key="p.name" :pizza="p" />
-    </div>
-    <h1 v-else style="text-align: center; margin-top: 130px">
-      По данному фильтру ничего не найдено!
-    </h1>
+  <head-component>
+    <router-link class="cart__link" to="/cart">
+      <primary-button :classes="['button_active', 'button_primary']">
+        <span class="total-price">$530</span>
+        <span class="line">|</span>
+        <div class="cart-icon">
+          <img src="@/assets/cart.svg" alt="cart icon" />
+          <span class="total-items">3</span>
+        </div>
+      </primary-button>
+    </router-link>
+  </head-component>
+  <div class="management">
+    <filters-component @onFilter="activeFilter = $event" :filters="filters" />
+    <sorting-component @onSort="sort" />
   </div>
+  <h2>Все пиццы</h2>
+  <div class="products" v-if="filteredPizza.length">
+    <pizza v-for="p in filteredPizza" :key="p.name" :pizza="p" />
+  </div>
+  <h1 v-else style="text-align: center; margin-top: 130px">
+    По данному фильтру ничего не найдено!
+  </h1>
 </template>
 
 <script>
 import HeadComponent from "@/components/Header.vue";
+import PrimaryButton from "@/components/PrimaryButton.vue";
 import Pizza from "@/components/Pizza.vue";
-import { pizzaTable } from "@/database-simulation.js";
 import FiltersComponent from "@/components/Filters.vue";
 import SortingComponent from "@/components/Sorting.vue";
+import { pizzaTable } from "@/database-simulation.js";
 
 export default {
   name: "OrderPage",
@@ -29,6 +38,7 @@ export default {
   components: {
     HeadComponent,
     Pizza,
+    PrimaryButton,
     FiltersComponent,
     SortingComponent,
   },
@@ -70,36 +80,45 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
-  padding: 0px 70px 0px 40px;
+.management {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
 
-  .management {
+h2 {
+  padding: 0;
+  margin: 35px 0;
+  font-weight: 900;
+  font-size: 2em;
+  color: #000;
+}
+
+.cart__link {
+  color: #fff;
+  text-decoration: none;
+
+  .line {
+    user-select: none;
+    color: #ffffff54;
+    padding: 0 9px;
+  }
+
+  .cart-icon {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
+    justify-content: center;
 
-  h2 {
-    padding: 0;
-    margin: 35px 0;
-    font-weight: 900;
-    font-size: 2em;
-    color: #000;
+    span {
+      padding-left: 5px;
+    }
   }
+}
 
-  hr {
-    border: none;
-    height: 1px;
-    background: #eee;
-    margin: 40px 0;
-  }
-
-  .products {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
+.products {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 </style>
