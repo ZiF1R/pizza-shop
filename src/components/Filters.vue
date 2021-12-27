@@ -1,10 +1,10 @@
 <template>
   <div class="filters">
     <button
-      class="button filter"
+      class="button button_secondary"
       v-for="filter in filters"
       :key="filter"
-      :class="{ filter_active: filter === activeFilter }"
+      :class="{ button_secondary_active: filter === activeFilter }"
       @click="selectFiltration(filter)"
     >
       {{ filter }}

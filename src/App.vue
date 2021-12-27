@@ -1,14 +1,8 @@
 <template>
-  <router-view />
+  <div class="container">
+    <router-view />
+  </div>
 </template>
-
-<script>
-export default {
-  data() {
-    return {};
-  },
-};
-</script>
 
 <style lang="scss">
 @import "@/vars.scss";
@@ -16,6 +10,10 @@ export default {
 body {
   padding: 0;
   margin: 0;
+}
+
+.container {
+  padding: 0px 70px 0px 40px;
 }
 
 #app {
@@ -52,6 +50,23 @@ body {
 
     &:active {
       background: darken($color: #fe5f1e, $amount: 5%);
+    }
+  }
+
+  &_secondary {
+    border-color: #fff;
+
+    &:hover {
+      filter: opacity(0.8);
+    }
+
+    &:active {
+      filter: grayscale(0.7);
+    }
+
+    &_active {
+      background: #000;
+      color: #fff;
     }
   }
 
