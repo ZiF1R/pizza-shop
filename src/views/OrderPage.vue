@@ -4,7 +4,7 @@
     <hr />
     <div class="management">
       <filters-component @onFilter="activeFilter = $event" :filters="filters" />
-      <sorting-component />
+      <sorting-component @onSort="sort" />
     </div>
     <h2>Все пиццы</h2>
     <div class="products" v-if="filteredPizza.length">
@@ -47,6 +47,16 @@ export default {
         "Закрытые",
       ],
     };
+  },
+
+  created() {
+    this.sort((a, b) => b["ordersCount"] - a["ordersCount"]);
+  },
+
+  methods: {
+    sort(fn) {
+      this.pizza = this.pizza.sort(fn);
+    },
   },
 
   computed: {

@@ -1,16 +1,16 @@
 <template>
   <div class="select" @mouseleave="showOptions = false">
     <span class="selected-value" @mouseenter="showOptions = true">
-      {{ selected }}
+      {{ selected.value }}
     </span>
     <div class="options" v-if="showOptions">
       <span
         v-for="option in options"
-        :key="option"
+        :key="option.value"
         @click.left="selectEvent(option)"
         :class="{ option__active: option === selected }"
       >
-        {{ option }}
+        {{ option.value }}
       </span>
     </div>
   </div>
@@ -25,6 +25,8 @@ export default {
     },
   },
 
+  emits: ["onSelect"],
+
   data() {
     return {
       selected: this.options[0],
@@ -36,6 +38,7 @@ export default {
     selectEvent(option) {
       this.selected = option;
       this.showOptions = false;
+      this.$emit("onSelect", this.selected);
     },
   },
 };

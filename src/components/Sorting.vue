@@ -2,7 +2,7 @@
   <div class="sorting">
     <img src="@/assets/sorting/up-arrow.svg" alt="up arrow" />
     <span>Сортировка по:</span>
-    <custom-select :options="options" />
+    <custom-select @onSelect="$emit('onSort', $event.fn)" :options="options" />
   </div>
 </template>
 
@@ -14,9 +14,24 @@ export default {
     CustomSelect,
   },
 
+  emits: ["onSort"],
+
   data() {
     return {
-      options: ["популярности", "цене", "алфавиту"],
+      options: [
+        {
+          value: "популярности",
+          fn: (a, b) => b["ordersCount"] - a["ordersCount"],
+        },
+        {
+          value: "цене",
+          fn: (a, b) => a["initialCost"] - b["initialCost"],
+        },
+        {
+          value: "алфавиту",
+          fn: (a, b) => (a["name"] > b["name"] ? 1 : -1),
+        },
+      ],
     };
   },
 };
