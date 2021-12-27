@@ -1,26 +1,12 @@
 <template>
   <div class="cart">
-    <img src="@/assets/logo.svg" alt="pizza-shop logo" />
-    <primary-button :classes="['button_active', 'button_primary']">
-      <span class="total-price">$530</span>
-      <span class="line">|</span>
-      <div class="cart-icon">
-        <img src="@/assets/cart.svg" alt="cart icon" />
-        <span class="total-items">3</span>
-      </div>
-    </primary-button>
+    <router-link to="/">
+      <img src="@/assets/logo.svg" alt="pizza-shop logo" />
+    </router-link>
+    <slot></slot>
   </div>
+  <hr />
 </template>
-
-<script>
-import PrimaryButton from "@/components/PrimaryButton.vue";
-
-export default {
-  components: {
-    PrimaryButton,
-  },
-};
-</script>
 
 <style lang="scss" scoped>
 .cart {
@@ -28,20 +14,12 @@ export default {
   justify-content: space-between;
   flex-direction: row;
   padding-top: 40px;
+}
 
-  .line {
-    user-select: none;
-    color: #ffffff54;
-    padding: 0 9px;
-  }
-
-  .cart-icon {
-    display: flex;
-    justify-content: center;
-
-    span {
-      padding-left: 5px;
-    }
-  }
+hr {
+  border: none;
+  height: 1px;
+  background: #eee;
+  margin: 40px 0;
 }
 </style>
