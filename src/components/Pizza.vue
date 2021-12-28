@@ -34,8 +34,13 @@
     </div>
     <div class="pizza__footer">
       <span class="pizza__total-price">от {{ totalCost }} ₽</span>
-      <primary-button :classes="['button_primary']">
+      <primary-button
+        class="add-button"
+        @click="addToCart"
+        :classes="['button_primary']"
+      >
         <span class="total-price">+ Добавить</span>
+        <span v-if="count" class="total-count">{{ count }}</span>
       </primary-button>
     </div>
   </div>
@@ -43,6 +48,7 @@
 
 <script>
 import PrimaryButton from "@/components/PrimaryButton.vue";
+import { mapMutations } from "vuex";
 
 export default {
   props: {
@@ -61,7 +67,22 @@ export default {
       activeDough: this.pizza.dough.filter((d) => d.inStock)[0],
       activeSize: this.pizza.sizes.filter((s) => s.inStock)[0],
       imgPath: require(`@/assets/pizza/${this.pizza.icon}.svg`),
+      count: 0,
     };
+  },
+
+  methods: {
+    ...mapMutations(["pushToCart"]),
+    addToCart() {
+      this.count++;
+      this.pushToCart({
+        pizza: this.pizza,
+        selectedOptions: {
+          dough: this.activeDough,
+          size: this.activeSize,
+        },
+      });
+    },
   },
 
   computed: {
@@ -81,7 +102,6 @@ export default {
   display: flex;
   flex-direction: column;
   margin-bottom: 60px;
-  // margin-right: 60px;
 
   h2 {
     text-align: center;
@@ -103,12 +123,32 @@ export default {
   user-select: none;
 }
 
+.add-button {
+  &:hover .total-count {
+    color: var(#{--primary-color});
+    background: #fff;
+  }
+}
+
+.total-count {
+  width: 25px;
+  height: 25px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 5px;
+  color: #fff;
+  background: var(#{--primary-color});
+}
+
 .option_active {
   background: #fff;
 }
 
 .option_disable {
   opacity: 0.2;
+  cursor: initial;
 }
 
 .pizza__options {
