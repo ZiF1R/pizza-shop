@@ -24,6 +24,12 @@ body {
   font-size: 16px;
 }
 
+hr {
+  border: none;
+  height: 1px;
+  background: #eee;
+}
+
 .button {
   font-weight: 700;
   font-size: 1em;
@@ -67,6 +73,23 @@ body {
     &_active {
       background: #000;
       color: #fff;
+    }
+  }
+
+  &_disabled {
+    background: #fff;
+    border-color: #d3d3d3;
+    color: #cacaca;
+
+    &:hover {
+      color: #dadada;
+      border-color: #e6e6e6;
+    }
+
+    &:active {
+      border-color: #d3d3d3;
+      color: #cacaca;
+      background: #fcfcfc;
     }
   }
 
