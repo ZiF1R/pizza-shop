@@ -16,6 +16,7 @@ const THIN_DOUGH_ADDITION = 0,
 
 const pizzaTable = [
   {
+    id: 1,
     name: "Чизбургер-пицца",
     icon: "cheeseburger",
     keyWords: ["Острые", "Закрытые", "Сырные"],
@@ -52,6 +53,7 @@ const pizzaTable = [
     ordersCount: 1024,
   },
   {
+    id: 2,
     name: "Сырная",
     icon: "cheese",
     keyWords: ["Закрытые", "Сырные"],
@@ -88,6 +90,7 @@ const pizzaTable = [
     ordersCount: 729,
   },
   {
+    id: 3,
     name: "Креветки по-азиатски",
     icon: "shrimps",
     keyWords: ["Мясные", "Сырные"],
@@ -124,6 +127,7 @@ const pizzaTable = [
     ordersCount: 312,
   },
   {
+    id: 4,
     name: "Сырный цыпленок",
     icon: "cheese-chicken",
     keyWords: ["Мясные", "Сырные", "Гриль"],
