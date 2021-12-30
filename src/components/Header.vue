@@ -17,9 +17,6 @@
 }
 
 hr {
-  border: none;
-  height: 1px;
-  background: #eee;
   margin: 40px 0;
 }
 </style>

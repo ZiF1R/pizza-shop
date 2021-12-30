@@ -48,7 +48,7 @@
 
 <script>
 import PrimaryButton from "@/components/PrimaryButton.vue";
-import { mapMutations } from "vuex";
+import { mapMutations, mapGetters } from "vuex";
 
 export default {
   props: {
@@ -71,7 +71,16 @@ export default {
     };
   },
 
+  created() {
+    let pizzaInCart = this.getCart().filter(
+      (item) => item.pizza === this.pizza
+    );
+    if (pizzaInCart.length > 0)
+      this.count = pizzaInCart.reduce((acc, item) => acc + item.totalCount, 0);
+  },
+
   methods: {
+    ...mapGetters(["getCart"]),
     ...mapMutations(["pushToCart"]),
     addToCart() {
       this.count++;
