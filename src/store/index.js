@@ -20,6 +20,24 @@ export default createStore({
       });
       !isAdded && state.cart.push({ ...newItem, totalCount: 1 });
     },
+    removeItem(state, item) {
+      state.cart = state.cart.filter((el) => el != item);
+    },
+    clearCart(state) {
+      state.cart = [];
+    },
+    decreaseItem(state, item) {
+      state.cart = state.cart.map((el) => {
+        if (el === item) el.totalCount--;
+        return el;
+      });
+    },
+    increaseItem(state, item) {
+      state.cart = state.cart.map((el) => {
+        if (el === item) el.totalCount++;
+        return el;
+      });
+    },
   },
   actions: {},
   getters: {
